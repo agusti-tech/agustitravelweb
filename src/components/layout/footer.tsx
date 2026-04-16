@@ -3,6 +3,7 @@
 import Link from "next/link";
 
 import { SiteBrand } from "@/components/layout/site-brand";
+import { googleBusinessReviewsUrl } from "@/data/google-reviews";
 
 const navLinks = [
   { href: "/", label: "Inicio" },
@@ -19,6 +20,8 @@ const conocenosLinks = [
 ];
 
 export function Footer() {
+  const googleReviewsHref = googleBusinessReviewsUrl.trim();
+
   return (
     <footer className="mt-20 border-t border-border/70 bg-card">
       <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-5 lg:px-8">
@@ -98,6 +101,18 @@ export function Footer() {
                 Instagram: @agustitravelco
               </a>
             </li>
+            {googleReviewsHref ? (
+              <li>
+                <a
+                  href={googleReviewsHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="transition-colors hover:text-primary"
+                >
+                  Reseñas en Google
+                </a>
+              </li>
+            ) : null}
           </ul>
         </div>
       </div>

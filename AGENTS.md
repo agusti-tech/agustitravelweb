@@ -79,6 +79,7 @@ Build a premium marketing website for **Agusti Travel Co.** (travel agency based
 - WhatsApp: `https://wa.me/5493472583255` (canonical; +54 9 3472 583255)
 - Email: [info@agustitravelco.com](mailto:info@agustitravelco.com)
 - Website: [www.agustitravelco.com](http://www.agustitravelco.com)
+- Reseñas Google (opcional, enlace estático): `src/data/google-reviews.ts` — sin API ni backend; si la URL está vacía, no se muestran los CTAs.
 
 ## 7) Destination Content Model
 

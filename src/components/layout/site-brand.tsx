@@ -13,18 +13,23 @@ export function SiteBrand({ variant = "header" }: SiteBrandProps) {
       href="/"
       className={`group flex items-center gap-3 ${isHeader ? "" : "items-start"}`}
     >
-      <Image
-        src="/images/logo-agusti-travel.png"
-        alt=""
-        width={isHeader ? 120 : 96}
-        height={isHeader ? 48 : 40}
-        className={
-          isHeader
-            ? "h-10 w-auto shrink-0 object-contain"
-            : "h-8 w-auto shrink-0 object-contain sm:h-9"
-        }
-        priority={isHeader}
-      />
+      <span
+        className="inline-flex shrink-0 rounded-xl bg-black p-1.5 ring-1 ring-border/40"
+        aria-hidden
+      >
+        <Image
+          src="/images/logo-agusti-travel.png"
+          alt=""
+          width={isHeader ? 160 : 140}
+          height={isHeader ? 72 : 64}
+          className={
+            isHeader
+              ? "h-11 w-auto max-w-[9.5rem] object-contain sm:h-12 sm:max-w-[10.5rem]"
+              : "h-10 w-auto max-w-[8.5rem] object-contain sm:h-11 sm:max-w-[9.5rem]"
+          }
+          priority={isHeader}
+        />
+      </span>
       <span className="flex min-w-0 flex-col leading-tight">
         <span
           className={`font-heading text-foreground transition-colors group-hover:text-primary ${

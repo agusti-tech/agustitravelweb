@@ -1,6 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
+/**
+ * Logo web: `public/images/logo-agusti-travel.png` (export desde
+ * `design/logo-agusti-travel.ai`). Marco suave para separarlo del fondo crema.
+ */
 type SiteBrandProps = {
   variant?: "header" | "footer";
 };
@@ -14,7 +18,7 @@ export function SiteBrand({ variant = "header" }: SiteBrandProps) {
       className={`group flex items-center gap-3 ${isHeader ? "" : "items-start"}`}
     >
       <span
-        className="inline-flex shrink-0 rounded-xl bg-black p-1.5 ring-1 ring-border/40"
+        className="inline-flex shrink-0 overflow-hidden rounded-2xl bg-card ring-1 ring-border/60 shadow-soft"
         aria-hidden
       >
         <Image

@@ -6,7 +6,7 @@ export function HomeTrustBar() {
   ];
 
   return (
-    <header className="border-b border-border/70 bg-secondary/45">
+    <div className="border-b border-border/70 bg-secondary/45">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-2 px-4 py-3 text-center text-xs font-medium tracking-wide text-foreground/80 sm:text-sm">
         {items.map((item, index) => (
           <span key={item} className="inline-flex items-center gap-2">
@@ -15,6 +15,6 @@ export function HomeTrustBar() {
           </span>
         ))}
       </div>
-    </header>
+    </div>
   );
 }

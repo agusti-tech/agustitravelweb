@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Contacto y asesoramiento | Agusti Travel Co.",
   description:
     "Solicitá una consulta personalizada con Agusti Travel Co. y comenzá a planificar tu próximo viaje a medida.",
+  alternates: { canonical: `${siteUrl}/contacto` },
   openGraph: {
     title: "Contacto y asesoramiento | Agusti Travel Co.",
     description:
@@ -14,6 +15,12 @@ export const metadata: Metadata = {
     siteName: "Agusti Travel Co.",
     locale: "es_AR",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contacto y asesoramiento | Agusti Travel Co.",
+    description:
+      "Completa el formulario de consulta y recibí propuesta personalizada para tu viaje.",
   },
 }
 
@@ -53,21 +60,21 @@ export default function ContactoPage() {
         <p className="text-sm uppercase tracking-[0.2em] text-primary">
           Contacto
         </p>
-        <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
+        <h1 className="text-4xl font-semibold tracking-tight text-foreground">
           Planifiquemos tu próximo viaje
         </h1>
-        <p className="max-w-2xl text-base leading-7 text-slate-600">
+        <p className="max-w-2xl text-base leading-7 text-muted-foreground">
           Contanos qué tipo de experiencia querés vivir y armamos una propuesta
           a medida para vos.
         </p>
       </header>
 
       <section className="grid gap-8 md:grid-cols-2">
-        <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="text-xl font-semibold text-slate-900">
+        <article className="rounded-2xl border border-border/70 bg-card p-6 shadow-sm">
+          <h2 className="text-xl font-semibold text-foreground">
             Datos de contacto
           </h2>
-          <ul className="mt-4 space-y-3 text-slate-700">
+          <ul className="mt-4 space-y-3 text-foreground/80">
             <li>
               WhatsApp:{" "}
               <a
@@ -85,46 +92,54 @@ export default function ContactoPage() {
           </ul>
         </article>
 
-        <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="text-xl font-semibold text-slate-900">
+        <article className="rounded-2xl border border-border/70 bg-card p-6 shadow-sm">
+          <h2 className="text-xl font-semibold text-foreground">
             Formulario de consulta
           </h2>
           <form id="contacto-form" className="mt-4 space-y-4">
-            <label className="block text-sm text-slate-700">
+            <label className="block text-sm text-foreground/80">
               Nombre completo
               <input
                 name="nombre"
                 type="text"
                 required
-                className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 text-sm outline-none ring-primary focus:ring-2"
+                aria-required="true"
+                className="mt-1 w-full rounded-xl border border-border px-3 py-2 text-sm bg-background outline-none ring-primary focus:ring-2"
               />
             </label>
-            <label className="block text-sm text-slate-700">
+            <label className="block text-sm text-foreground/80">
               Email
               <input
                 name="email"
                 type="email"
                 required
-                className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 text-sm outline-none ring-primary focus:ring-2"
+                aria-required="true"
+                className="mt-1 w-full rounded-xl border border-border px-3 py-2 text-sm bg-background outline-none ring-primary focus:ring-2"
               />
             </label>
-            <label className="block text-sm text-slate-700">
+            <label className="block text-sm text-foreground/80">
               Mensaje
               <textarea
                 name="mensaje"
                 rows={4}
                 required
+                aria-required="true"
                 minLength={20}
-                className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 text-sm outline-none ring-primary focus:ring-2"
+                className="mt-1 w-full rounded-xl border border-border px-3 py-2 text-sm bg-background outline-none ring-primary focus:ring-2"
               />
             </label>
             <button
               type="submit"
-              className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-medium text-white transition hover:bg-primary/90"
+              className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
             >
               Enviar consulta
             </button>
-            <p id="contacto-estado" className="mt-3 text-sm text-slate-500">
+            <p
+              id="contacto-estado"
+              role="alert"
+              aria-live="polite"
+              className="mt-3 text-sm text-muted-foreground"
+            >
               Completa el formulario y te responderemos pronto.
             </p>
           </form>

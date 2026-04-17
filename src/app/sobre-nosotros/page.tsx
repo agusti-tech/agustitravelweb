@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Sobre nosotros | Agusti Travel Co.",
   description:
     "Conocé la historia y el enfoque de Agusti Travel Co., una agencia habilitada con operaciones en Argentina y España.",
+  alternates: { canonical: `${siteUrl}/sobre-nosotros` },
   openGraph: {
     title: "Sobre nosotros | Agusti Travel Co.",
     description:
@@ -24,6 +25,12 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sobre nosotros | Agusti Travel Co.",
+    description:
+      "Agencia boutique especializada en viajes a medida, salidas grupales y asesoramiento personalizado.",
+  },
 }
 
 export default function SobreNosotrosPage() {
@@ -33,17 +40,17 @@ export default function SobreNosotrosPage() {
         <p className="text-sm uppercase tracking-[0.2em] text-primary">
           Sobre nosotros
         </p>
-        <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
+        <h1 className="text-4xl font-semibold tracking-tight text-foreground">
           Viajes a medida con mirada local y acompañamiento real
         </h1>
-        <p className="max-w-3xl text-base leading-7 text-slate-600">
+        <p className="max-w-3xl text-base leading-7 text-muted-foreground">
           En Agusti Travel Co. diseñamos experiencias de viaje personalizadas
           para viajeros que valoran el detalle, la confianza y el servicio
           cercano.
         </p>
       </header>
 
-      <figure className="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
+      <figure className="mt-10 overflow-hidden rounded-2xl border border-border/70 bg-muted shadow-sm">
         <Image
           src="/images/equipo-agusti-travel.png"
           alt="Equipo de Agusti Travel Co. en las oficinas de la agencia"
@@ -53,35 +60,35 @@ export default function SobreNosotrosPage() {
           sizes="(max-width: 1024px) 100vw, 1024px"
           priority
         />
-        <figcaption className="border-t border-slate-200 bg-white px-4 py-3 text-center text-sm text-slate-600">
+        <figcaption className="border-t border-border/70 bg-card px-4 py-3 text-center text-sm text-muted-foreground">
           El equipo de Agusti Travel Co.
         </figcaption>
       </figure>
 
       <section className="mt-10 grid gap-6 md:grid-cols-3">
-        <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-slate-900">
+        <article className="rounded-2xl border border-border/70 bg-card p-6 shadow-sm">
+          <h2 className="text-lg font-semibold text-foreground">
             Nuestra base
           </h2>
-          <p className="mt-3 text-sm leading-6 text-slate-600">
+          <p className="mt-3 text-sm leading-6 text-muted-foreground">
             Operamos desde Marcos Juárez, Córdoba, y acompañamos viajeros en
             toda Argentina.
           </p>
         </article>
-        <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-slate-900">
+        <article className="rounded-2xl border border-border/70 bg-card p-6 shadow-sm">
+          <h2 className="text-lg font-semibold text-foreground">
             Presencia en Europa
           </h2>
-          <p className="mt-3 text-sm leading-6 text-slate-600">
+          <p className="mt-3 text-sm leading-6 text-muted-foreground">
             También trabajamos en Barcelona para brindar soporte cercano en
             destino y alianzas locales.
           </p>
         </article>
-        <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-slate-900">
+        <article className="rounded-2xl border border-border/70 bg-card p-6 shadow-sm">
+          <h2 className="text-lg font-semibold text-foreground">
             Filosofía de servicio
           </h2>
-          <p className="mt-3 text-sm leading-6 text-slate-600">
+          <p className="mt-3 text-sm leading-6 text-muted-foreground">
             Cada itinerario se planifica con criterio profesional, tiempos
             reales y selección de proveedores confiables.
           </p>

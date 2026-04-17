@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Blog de viajes | Agusti Travel Co.",
   description:
     "Consejos, rutas e inspiración para planificar viajes a medida con información práctica y curada por especialistas.",
+  alternates: { canonical: `${siteUrl}/blog` },
   openGraph: {
     title: "Blog de viajes | Agusti Travel Co.",
     description:
@@ -17,6 +18,12 @@ export const metadata: Metadata = {
     siteName: "Agusti Travel Co.",
     locale: "es_AR",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog de viajes | Agusti Travel Co.",
+    description:
+      "Leé artículos sobre planificación, destinos y experiencias para tu próximo viaje.",
   },
 }
 
@@ -27,10 +34,10 @@ export default function BlogPage() {
     <div className="mx-auto w-full max-w-6xl px-6 py-16 md:px-10">
       <header className="mb-10 space-y-4">
         <p className="text-sm uppercase tracking-[0.2em] text-primary">Blog</p>
-        <h1 className="text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">
+        <h1 className="text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
           Ideas, consejos y rutas para viajar mejor
         </h1>
-        <p className="max-w-3xl text-base leading-7 text-slate-600">
+        <p className="max-w-3xl text-base leading-7 text-muted-foreground">
           Compartimos contenidos para ayudarte a tomar mejores decisiones al
           planificar tu próximo viaje.
         </p>

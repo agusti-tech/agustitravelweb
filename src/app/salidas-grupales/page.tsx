@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Salidas grupales | Agusti Travel Co.",
   description:
     "Conocé las próximas salidas grupales de Agusti Travel Co. con fechas, duración y precios orientativos.",
+  alternates: { canonical: `${siteUrl}/salidas-grupales` },
   openGraph: {
     title: "Salidas grupales | Agusti Travel Co.",
     description:
@@ -15,6 +16,12 @@ export const metadata: Metadata = {
     siteName: "Agusti Travel Co.",
     locale: "es_AR",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Salidas grupales | Agusti Travel Co.",
+    description:
+      "Programas grupales con cupos limitados y acompañamiento personalizado en cada etapa del viaje.",
   },
 }
 
@@ -25,10 +32,10 @@ export default function SalidasGrupalesPage() {
         <p className="text-sm uppercase tracking-[0.2em] text-primary">
           Salidas grupales
         </p>
-        <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
+        <h1 className="text-4xl font-semibold tracking-tight text-foreground">
           Próximas experiencias con cupos limitados
         </h1>
-        <p className="max-w-3xl text-base leading-7 text-slate-600">
+        <p className="max-w-3xl text-base leading-7 text-muted-foreground">
           Programas acompañados para viajeros que quieren compartir la
           experiencia sin resignar calidad, organización ni soporte.
         </p>
@@ -38,14 +45,14 @@ export default function SalidasGrupalesPage() {
         {departures.map((departure) => (
           <article
             key={departure.id}
-            className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+            className="rounded-2xl border border-border/70 bg-card p-6 shadow-sm"
           >
             <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
               <div>
-                <h2 className="text-2xl font-semibold text-slate-900">
+                <h2 className="text-2xl font-semibold text-foreground">
                   {departure.title}
                 </h2>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-muted-foreground">
                   Destino: {departure.destination}
                 </p>
               </div>
@@ -54,17 +61,17 @@ export default function SalidasGrupalesPage() {
               </p>
             </div>
 
-            <dl className="mt-5 grid gap-3 text-sm text-slate-700 md:grid-cols-3">
-              <div className="rounded-xl bg-slate-50 px-4 py-3">
-                <dt className="text-slate-500">Fecha de salida</dt>
+            <dl className="mt-5 grid gap-3 text-sm text-foreground/80 md:grid-cols-3">
+              <div className="rounded-xl bg-muted/50 px-4 py-3">
+                <dt className="text-muted-foreground">Fecha de salida</dt>
                 <dd>{departure.startDate}</dd>
               </div>
-              <div className="rounded-xl bg-slate-50 px-4 py-3">
-                <dt className="text-slate-500">Duración</dt>
+              <div className="rounded-xl bg-muted/50 px-4 py-3">
+                <dt className="text-muted-foreground">Duración</dt>
                 <dd>{departure.duration}</dd>
               </div>
-              <div className="rounded-xl bg-slate-50 px-4 py-3">
-                <dt className="text-slate-500">Precio orientativo</dt>
+              <div className="rounded-xl bg-muted/50 px-4 py-3">
+                <dt className="text-muted-foreground">Precio orientativo</dt>
                 <dd>Desde {departure.startingPrice}</dd>
               </div>
             </dl>
@@ -73,7 +80,7 @@ export default function SalidasGrupalesPage() {
               href="https://wa.me/5493472583255"
               target="_blank"
               rel="noreferrer"
-              className="mt-6 inline-flex rounded-full bg-primary px-5 py-3 text-sm font-medium text-white transition hover:bg-primary/90"
+              className="mt-6 inline-flex rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
             >
               Consultar disponibilidad
             </a>

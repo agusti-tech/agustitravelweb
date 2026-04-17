@@ -3,13 +3,16 @@
 import { useEffect } from "react";
 import Script from "next/script";
 
+import { useKlaroConsent } from "@/hooks/use-klaro-consent";
 import { instagramShowcase } from "@/data/instagram-showcase";
 
 const PROFILE_URL = "https://www.instagram.com/agustitravelco/";
 
 export function HomeInstagramReels() {
+  const marketingConsent = useKlaroConsent("instagram");
+
   useEffect(() => {
-    if (instagramShowcase.length === 0) return;
+    if (instagramShowcase.length === 0 || !marketingConsent) return;
     const id = window.setInterval(() => {
       if (window.instgrm?.Embeds) {
         window.instgrm.Embeds.process();
@@ -17,7 +20,7 @@ export function HomeInstagramReels() {
       }
     }, 120);
     return () => window.clearInterval(id);
-  }, []);
+  }, [marketingConsent]);
 
   return (
     <section
@@ -59,29 +62,47 @@ export function HomeInstagramReels() {
                   key={item.url}
                   className="flex min-h-[480px] justify-center overflow-hidden rounded-2xl border border-border/70 bg-card p-2 shadow-sm"
                 >
-                  <blockquote
-                    className="instagram-media"
-                    data-instgrm-permalink={item.url}
-                    data-instgrm-version="14"
-                    style={{
-                      background: "#FFF",
-                      border: 0,
-                      borderRadius: "12px",
-                      margin: "1px",
-                      maxWidth: "540px",
-                      minWidth: "260px",
-                      padding: 0,
-                      width: "calc(100% - 2px)",
-                    }}
-                  />
+                  {marketingConsent ? (
+                    <blockquote
+                      className="instagram-media"
+                      data-instgrm-permalink={item.url}
+                      data-instgrm-version="14"
+                      style={{
+                        background: "var(--card)",
+                        border: 0,
+                        borderRadius: "12px",
+                        margin: "1px",
+                        maxWidth: "540px",
+                        minWidth: "260px",
+                        padding: 0,
+                        width: "calc(100% - 2px)",
+                      }}
+                    />
+                  ) : (
+                    <div className="flex flex-col items-center justify-center gap-3 text-center text-sm text-muted-foreground p-6">
+                      <p>Aceptá las cookies de redes sociales para ver este contenido.</p>
+                      <button
+                        type="button"
+                        className="rounded-full border border-primary/40 px-4 py-2 text-xs font-medium text-primary transition hover:bg-primary/10"
+                        onClick={() => {
+                          (window as { klaro?: { show: () => void } }).klaro?.show();
+                        }}
+                      >
+                        Configurar cookies
+                      </button>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
-            <Script
-              src="https://www.instagram.com/embed.js"
-              strategy="lazyOnload"
-              onLoad={() => window.instgrm?.Embeds?.process()}
-            />
+            {/* Only load Instagram embed.js after consent is given */}
+            {marketingConsent && (
+              <Script
+                src="https://www.instagram.com/embed.js"
+                strategy="lazyOnload"
+                onLoad={() => window.instgrm?.Embeds?.process()}
+              />
+            )}
           </>
         ) : (
           <p className="text-center text-sm text-muted-foreground">

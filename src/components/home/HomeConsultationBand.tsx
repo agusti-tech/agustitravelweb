@@ -6,7 +6,7 @@ export function HomeConsultationBand() {
   return (
     <section
       aria-labelledby="consulta-cta"
-      className="bg-gradient-to-r from-primary to-[#008ecc] text-white"
+      className="bg-gradient-to-r from-primary to-teal text-white"
     >
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-12 sm:items-center sm:justify-between md:flex-row">
         <div>

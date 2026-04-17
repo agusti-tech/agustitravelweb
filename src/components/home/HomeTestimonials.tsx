@@ -1,5 +1,24 @@
+import { Star } from "@phosphor-icons/react/dist/ssr";
+
+import { RevealOnScroll } from "@/components/reveal-on-scroll";
 import { googleBusinessReviewsUrl } from "@/data/google-reviews";
 import { testimonials } from "@/data/testimonials";
+
+function StarRating({ rating = 5 }: { rating?: number }) {
+  return (
+    <div className="flex gap-0.5" aria-label={`${rating} de 5 estrellas`}>
+      {Array.from({ length: 5 }, (_, i) => (
+        <Star
+          key={i}
+          size={14}
+          weight={i < rating ? "fill" : "regular"}
+          className={i < rating ? "text-gold" : "text-muted-foreground/40"}
+          aria-hidden
+        />
+      ))}
+    </div>
+  );
+}
 
 export function HomeTestimonials() {
   const googleReviewsHref = googleBusinessReviewsUrl.trim();
@@ -7,30 +26,33 @@ export function HomeTestimonials() {
   return (
     <section
       aria-labelledby="testimonios-clientes"
-      className="mx-auto w-full max-w-6xl px-4 py-16 sm:py-20"
+      className="mx-auto w-full max-w-6xl px-4 py-16 sm:py-24"
     >
-      <div className="mb-10 flex flex-col gap-4">
+      <RevealOnScroll className="mb-10 flex flex-col gap-4">
         <p className="text-sm font-medium uppercase tracking-[0.22em] text-primary">
           Testimonios
         </p>
-        <h2 id="testimonios-clientes" className="text-3xl font-semibold tracking-tight">
-          Historias reales de viajeros Agusti Travel Co.
+        <h2 id="testimonios-clientes" className="text-3xl font-semibold tracking-tight md:text-4xl">
+          Historias reales de{" "}
+          <span className="font-light italic">viajeros</span> Agusti Travel Co.
         </h2>
-      </div>
+      </RevealOnScroll>
       <div className="grid gap-4 md:grid-cols-3">
-        {testimonials.map((testimonial) => (
-          <article
-            key={testimonial.author}
-            className="rounded-2xl border border-border/70 bg-card p-6 shadow-sm"
-          >
-            <p className="text-sm leading-6 text-muted-foreground">
-              “{testimonial.quote}”
-            </p>
-            <p className="mt-5 text-sm font-semibold">{testimonial.author}</p>
-            <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
-              {testimonial.trip}
-            </p>
-          </article>
+        {testimonials.map((testimonial, i) => (
+          <RevealOnScroll key={testimonial.author} delay={(i + 1) as 1 | 2 | 3}>
+            <article className="flex h-full flex-col rounded-2xl border border-border/70 bg-card p-6 shadow-sm">
+              <StarRating />
+              <p className="mt-4 flex-1 text-sm leading-6 text-muted-foreground">
+                &ldquo;{testimonial.quote}&rdquo;
+              </p>
+              <div className="mt-5 border-t border-border/50 pt-4">
+                <p className="text-sm font-semibold">{testimonial.author}</p>
+                <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
+                  {testimonial.trip}
+                </p>
+              </div>
+            </article>
+          </RevealOnScroll>
         ))}
       </div>
 

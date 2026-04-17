@@ -5,7 +5,6 @@ import { HomeFeaturedDepartures } from "@/components/home/HomeFeaturedDepartures
 import { HomeFeaturedDestinations } from "@/components/home/HomeFeaturedDestinations";
 import { HomeHero } from "@/components/home/HomeHero";
 import { HomeInstagramReels } from "@/components/home/HomeInstagramReels";
-import { HomeMobileWhatsAppCta } from "@/components/home/HomeMobileWhatsAppCta";
 import { HomeSignatureServices } from "@/components/home/HomeSignatureServices";
 import { HomeTestimonials } from "@/components/home/HomeTestimonials";
 import { HomeTrustBar } from "@/components/home/HomeTrustBar";
@@ -15,6 +14,7 @@ export const metadata: Metadata = {
   title: "Agusti Travel Co. | Viajes a medida desde Argentina y España",
   description:
     "Planificamos viajes a medida con asesoramiento personalizado, salidas grupales y experiencias exclusivas en Argentina y Europa.",
+  alternates: { canonical: "https://www.agustitravelco.com" },
   openGraph: {
     title: "Agusti Travel Co. | Viajes a medida",
     description:
@@ -23,6 +23,21 @@ export const metadata: Metadata = {
     siteName: "Agusti Travel Co.",
     locale: "es_AR",
     type: "website",
+    images: [
+      {
+        url: "/images/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Agusti Travel Co. — Viajes a medida",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Agusti Travel Co. | Viajes a medida desde Argentina y España",
+    description:
+      "Planificamos viajes a medida con asesoramiento personalizado, salidas grupales y experiencias exclusivas en Argentina y Europa.",
+    images: ["/images/og-default.jpg"],
   },
 };
 
@@ -60,7 +75,6 @@ export default function Home() {
       <HomeTrustBar />
       <div className="flex flex-col">
         <HomeHero />
-        <HomeMobileWhatsAppCta />
         <HomeSignatureServices />
         <HomeFeaturedDestinations />
         <HomeWhyTravelWithUs />

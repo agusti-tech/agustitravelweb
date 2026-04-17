@@ -1,8 +1,8 @@
-"use client";
-
 import Link from "next/link";
+import { InstagramLogo, WhatsappLogo, EnvelopeSimple, Globe } from "@phosphor-icons/react/dist/ssr";
 
 import { SiteBrand } from "@/components/layout/site-brand";
+import { CookieButton } from "@/components/layout/cookie-button";
 import { googleBusinessReviewsUrl } from "@/data/google-reviews";
 
 const navLinks = [
@@ -34,6 +34,34 @@ export function Footer() {
           <p className="text-sm text-foreground/90">
             Marcos Juárez, Córdoba, Argentina · Operamos también en Barcelona, España
           </p>
+          {/* Social icons */}
+          <div className="flex items-center gap-3 pt-1">
+            <a
+              href="https://instagram.com/agustitravelco"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram de Agusti Travel Co."
+              className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-border/70 text-muted-foreground transition hover:border-primary hover:text-primary"
+            >
+              <InstagramLogo size={18} weight="duotone" aria-hidden />
+            </a>
+            <a
+              href="https://wa.me/5493472583255"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="WhatsApp de Agusti Travel Co."
+              className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-border/70 text-muted-foreground transition hover:border-primary hover:text-primary"
+            >
+              <WhatsappLogo size={18} weight="duotone" aria-hidden />
+            </a>
+            <a
+              href="mailto:info@agustitravelco.com"
+              aria-label="Email de Agusti Travel Co."
+              className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-border/70 text-muted-foreground transition hover:border-primary hover:text-primary"
+            >
+              <EnvelopeSimple size={18} weight="duotone" aria-hidden />
+            </a>
+          </div>
         </div>
 
         <div className="space-y-3">
@@ -71,34 +99,38 @@ export function Footer() {
         <div className="space-y-3">
           <p className="font-heading text-lg text-foreground">Contacto</p>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li>
+            <li className="flex items-center gap-2">
+              <EnvelopeSimple size={14} weight="duotone" aria-hidden className="shrink-0" />
               <a href="mailto:info@agustitravelco.com" className="transition-colors hover:text-primary">
                 info@agustitravelco.com
               </a>
             </li>
-            <li>
+            <li className="flex items-center gap-2">
+              <Globe size={14} weight="duotone" aria-hidden className="shrink-0" />
               <a href="https://www.agustitravelco.com" className="transition-colors hover:text-primary">
                 www.agustitravelco.com
               </a>
             </li>
-            <li>
+            <li className="flex items-center gap-2">
+              <WhatsappLogo size={14} weight="duotone" aria-hidden className="shrink-0" />
               <a
                 href="https://wa.me/5493472583255"
                 target="_blank"
                 rel="noreferrer"
                 className="transition-colors hover:text-primary"
               >
-                WhatsApp
+                +54 9 3472 583255
               </a>
             </li>
-            <li>
+            <li className="flex items-center gap-2">
+              <InstagramLogo size={14} weight="duotone" aria-hidden className="shrink-0" />
               <a
                 href="https://instagram.com/agustitravelco"
                 target="_blank"
                 rel="noreferrer"
                 className="transition-colors hover:text-primary"
               >
-                Instagram: @agustitravelco
+                @agustitravelco
               </a>
             </li>
             {googleReviewsHref ? (
@@ -121,23 +153,11 @@ export function Footer() {
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-4 py-4 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
           <p>© {new Date().getFullYear()} Agusti Travel Co. Todos los derechos reservados.</p>
           <div className="flex flex-wrap items-center gap-2">
-            <span>Legales</span>
-            <span aria-hidden="true">·</span>
             <Link href="/privacidad" className="underline underline-offset-2 transition-colors hover:text-primary">
               Privacidad
             </Link>
             <span aria-hidden="true">·</span>
-            <span>Términos</span>
-            <span aria-hidden="true">·</span>
-            <button
-              type="button"
-              className="underline underline-offset-2 transition-colors hover:text-primary"
-              onClick={() => {
-                (window as { klaro?: { show: () => void } }).klaro?.show();
-              }}
-            >
-              Configurar cookies
-            </button>
+            <CookieButton />
           </div>
         </div>
       </div>

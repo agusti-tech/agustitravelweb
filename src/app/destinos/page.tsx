@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Destinos a medida | Agusti Travel Co.",
   description:
     "Explora destinos seleccionados por Agusti Travel Co. con itinerarios personalizados para viajar con estilo y tranquilidad.",
+  alternates: { canonical: `${siteUrl}/destinos` },
   openGraph: {
     title: "Destinos a medida | Agusti Travel Co.",
     description:
@@ -18,6 +19,12 @@ export const metadata: Metadata = {
     siteName: "Agusti Travel Co.",
     locale: "es_AR",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Destinos a medida | Agusti Travel Co.",
+    description:
+      "Descubrí Patagonia, España, Italia y Europa clásica con asesoramiento experto y planificación personalizada.",
   },
 }
 
@@ -28,10 +35,10 @@ export default function DestinosPage() {
         <p className="text-sm uppercase tracking-[0.2em] text-primary">
           Destinos
         </p>
-        <h1 className="text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">
+        <h1 className="text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
           Viajes diseñados para cada estilo
         </h1>
-        <p className="max-w-3xl text-base leading-7 text-slate-600">
+        <p className="max-w-3xl text-base leading-7 text-muted-foreground">
           Curamos experiencias en destinos icónicos para que vivas cada viaje
           con una planificación clara, alojamientos seleccionados y asistencia
           personalizada.
@@ -42,29 +49,30 @@ export default function DestinosPage() {
         {destinations.map((destination) => (
           <article
             key={destination.slug}
-            className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+            className="overflow-hidden rounded-2xl border border-border/70 bg-card shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
           >
             <Image
               src={destination.heroImage}
               alt={`Vista destacada de ${destination.name}`}
               width={1200}
               height={700}
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="h-52 w-full object-cover"
             />
             <div className="space-y-4 p-6">
-              <h2 className="text-2xl font-semibold text-slate-900">
+              <h2 className="text-2xl font-semibold text-foreground">
                 {destination.name}
               </h2>
-              <p className="text-sm leading-6 text-slate-600">
+              <p className="text-sm leading-6 text-muted-foreground">
                 {destination.shortDescription}
               </p>
-              <div className="flex items-center justify-between text-sm text-slate-700">
+              <div className="flex items-center justify-between text-sm text-foreground/70">
                 <span>Duración sugerida: {destination.suggestedDuration}</span>
                 <span>Desde {destination.startingPrice}</span>
               </div>
               <Link
                 href={`/destinos/${destination.slug}`}
-                className="inline-flex rounded-full bg-primary px-4 py-2 text-sm font-medium text-white transition hover:bg-primary/90"
+                className="inline-flex rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
               >
                 Ver detalle
               </Link>

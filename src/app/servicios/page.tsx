@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Servicios | Agusti Travel Co.",
   description:
     "Descubrí los servicios de Agusti Travel Co.: itinerarios a medida, salidas grupales y experiencias exclusivas locales.",
+  alternates: { canonical: `${siteUrl}/servicios` },
   openGraph: {
     title: "Servicios | Agusti Travel Co.",
     description:
@@ -14,6 +15,12 @@ export const metadata: Metadata = {
     siteName: "Agusti Travel Co.",
     locale: "es_AR",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Servicios | Agusti Travel Co.",
+    description:
+      "Planificación personalizada para viajes de autor con acompañamiento antes, durante y después del viaje.",
   },
 }
 
@@ -47,10 +54,10 @@ export default function ServiciosPage() {
         <p className="text-sm uppercase tracking-[0.2em] text-primary">
           Servicios
         </p>
-        <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
+        <h1 className="text-4xl font-semibold tracking-tight text-foreground">
           Soluciones de viaje pensadas para vos
         </h1>
-        <p className="max-w-3xl text-base leading-7 text-slate-600">
+        <p className="max-w-3xl text-base leading-7 text-muted-foreground">
           Nuestro enfoque combina asesoramiento humano, planificación detallada
           y una red de proveedores confiables en Argentina y Europa.
         </p>
@@ -60,12 +67,12 @@ export default function ServiciosPage() {
         {services.map((service) => (
           <article
             key={service.title}
-            className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+            className="rounded-2xl border border-border/70 bg-card p-6 shadow-sm"
           >
-            <h2 className="text-xl font-semibold text-slate-900">
+            <h2 className="text-xl font-semibold text-foreground">
               {service.title}
             </h2>
-            <p className="mt-3 text-sm leading-6 text-slate-600">
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
               {service.description}
             </p>
           </article>

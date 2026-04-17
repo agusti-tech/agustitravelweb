@@ -4,9 +4,10 @@ import Link from "next/link";
 const siteUrl = "https://www.agustitravelco.com";
 
 export const metadata: Metadata = {
-  title: "Política de privacidad",
+  title: "Política de privacidad | Agusti Travel Co.",
   description:
     "Información sobre el tratamiento de datos personales y cookies en el sitio de Agusti Travel Co.",
+  alternates: { canonical: `${siteUrl}/privacidad` },
   openGraph: {
     title: "Política de privacidad | Agusti Travel Co.",
     description:
@@ -15,6 +16,11 @@ export const metadata: Metadata = {
     siteName: "Agusti Travel Co.",
     locale: "es_AR",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Política de privacidad | Agusti Travel Co.",
+    description: "Cómo tratamos tus datos y cómo podés ejercer tus derechos.",
   },
 };
 
@@ -25,16 +31,16 @@ export default function PrivacidadPage() {
         <p className="text-sm uppercase tracking-[0.2em] text-primary">
           Conócenos
         </p>
-        <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
+        <h1 className="text-4xl font-semibold tracking-tight text-foreground">
           Política de privacidad
         </h1>
-        <p className="text-sm text-slate-600">
+        <p className="text-sm text-muted-foreground">
           Última actualización: abril de 2026. Este texto es orientativo; conviene
           revisarlo con un asesor legal según tu jurisdicción y operación.
         </p>
       </header>
 
-      <div className="prose prose-slate mt-10 max-w-none prose-headings:font-heading prose-h2:text-xl prose-p:text-slate-700">
+      <div className="prose prose-neutral mt-10 max-w-none prose-headings:font-heading prose-headings:text-foreground prose-h2:text-xl prose-p:text-foreground/80 prose-a:text-primary prose-strong:text-foreground">
         <h2>1. Responsable</h2>
         <p>
           Agusti Travel Co., con domicilio en Marcos Juárez, provincia de Córdoba,
@@ -103,7 +109,7 @@ export default function PrivacidadPage() {
         </p>
       </div>
 
-      <p className="mt-10 text-sm text-slate-600">
+      <p className="mt-10 text-sm text-muted-foreground">
         <Link href="/sobre-nosotros" className="text-primary underline underline-offset-2">
           Volver a Sobre nosotros
         </Link>

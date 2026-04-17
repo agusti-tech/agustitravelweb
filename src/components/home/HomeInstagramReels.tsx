@@ -39,8 +39,8 @@ export function HomeInstagramReels() {
             Instagram y reels
           </h2>
           <p className="mx-auto max-w-2xl text-sm leading-7 text-muted-foreground">
-            Mirá novedades y viajes en nuestro perfil. Si agregamos enlaces abajo, se
-            verán incrustados los reels o publicaciones que elijamos.
+            Mirá novedades y viajes en nuestro perfil. También seleccionamos reels para
+            que puedas ver ideas de viaje directamente desde esta sección.
           </p>
           <div>
             <a

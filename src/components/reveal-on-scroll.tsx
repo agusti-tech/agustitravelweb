@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode, createElement } from "react";
+import { useEffect, useRef, type ElementType, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 type RevealOnScrollProps = {
   children: ReactNode;
   className?: string;
   delay?: 0 | 1 | 2 | 3 | 4;
-  as?: string;
+  as?: ElementType;
 };
 
 const delayClass: Record<number, string> = {
@@ -24,6 +24,7 @@ export function RevealOnScroll({
   delay = 0,
   as = "div",
 }: RevealOnScrollProps) {
+  const Tag = as;
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -43,9 +44,12 @@ export function RevealOnScroll({
     return () => observer.disconnect();
   }, []);
 
-  return createElement(
-    as,
-    { ref, className: cn("reveal", delayClass[delay], className) },
-    children,
+  return (
+    <Tag
+      ref={ref}
+      className={cn("reveal", delayClass[delay], className)}
+    >
+      {children}
+    </Tag>
   );
 }

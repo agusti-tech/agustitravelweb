@@ -16,33 +16,40 @@ export function useKlaroConsent(serviceName: string): boolean {
 
   useEffect(() => {
     const w = window as KlaroWindow;
+    let lastConsentCookie = "";
 
     const checkConsent = () => {
       const consent = w.klaro?.getManager?.()?.getConsent(serviceName) ?? false;
       setHasConsent(consent);
     };
 
-    // Poll briefly after mount to let Klaro initialize
-    const pollId = setInterval(() => {
+    // Poll briefly after mount to let Klaro initialize.
+    const bootstrapId = setInterval(() => {
       if (w.klaro?.getManager) {
         checkConsent();
-
-        // Watch for future consent changes
-        w.klaro.getManager?.()?.watch({
-          update: (_manager, eventType) => {
-            if (eventType === "consents") checkConsent();
-          },
-        });
-
-        clearInterval(pollId);
+        clearInterval(bootstrapId);
       }
     }, 100);
 
-    const timeoutId = setTimeout(() => clearInterval(pollId), 8000);
+    const bootstrapTimeoutId = setTimeout(() => clearInterval(bootstrapId), 8000);
+
+    // Keep consent in sync after the user updates choices in Klaro.
+    // We compare the consent cookie and re-check only when it changes.
+    const syncId = setInterval(() => {
+      const cookie = document.cookie
+        .split("; ")
+        .find((part) => part.startsWith("agusti_consent=")) ?? "";
+
+      if (cookie !== lastConsentCookie) {
+        lastConsentCookie = cookie;
+        checkConsent();
+      }
+    }, 500);
 
     return () => {
-      clearInterval(pollId);
-      clearTimeout(timeoutId);
+      clearInterval(bootstrapId);
+      clearTimeout(bootstrapTimeoutId);
+      clearInterval(syncId);
     };
   }, [serviceName]);
 

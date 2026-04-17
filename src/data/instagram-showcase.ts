@@ -14,6 +14,10 @@ export type InstagramShowcaseItem = {
 };
 
 export const instagramShowcase: InstagramShowcaseItem[] = [
-  // Ejemplo (comentá o borrá las líneas cuando agregues enlaces reales):
-  // { url: "https://www.instagram.com/reel/XXXXXXXXXXX/" },
+  { url: "https://www.instagram.com/reel/DW6_91WhRMH/" },
+  { url: "https://www.instagram.com/reel/DW2UJu7BOiH/" },
+  { url: "https://www.instagram.com/reel/DWZGLEXh8mz/" },
+  { url: "https://www.instagram.com/reel/DWU4G3ehTNk/" },
+  { url: "https://www.instagram.com/reel/DWCy9K3jjP3/" },
+  { url: "https://www.instagram.com/reel/DVt_zAyjhMO/" },
 ];

@@ -63,23 +63,18 @@ export function HomeInstagramReels() {
                   className="flex min-h-[480px] justify-center overflow-hidden rounded-2xl border border-border/70 bg-card p-2 shadow-sm"
                 >
                   {marketingConsent ? (
-                    <blockquote
-                      className="instagram-media"
-                      data-instgrm-permalink={item.url}
-                      data-instgrm-version="14"
-                      style={{
-                        background: "var(--card)",
-                        border: 0,
-                        borderRadius: "12px",
-                        margin: "1px",
-                        maxWidth: "540px",
-                        minWidth: "260px",
-                        padding: 0,
-                        width: "calc(100% - 2px)",
+                    <div
+                      key={`embed-${item.url}`}
+                      className="w-full"
+                      dangerouslySetInnerHTML={{
+                        __html: `<blockquote class="instagram-media" data-instgrm-permalink="${item.url}" data-instgrm-version="14" style="background:var(--card);border:0;border-radius:12px;margin:1px;max-width:540px;min-width:260px;padding:0;width:calc(100% - 2px);"></blockquote>`,
                       }}
                     />
                   ) : (
-                    <div className="flex flex-col items-center justify-center gap-3 text-center text-sm text-muted-foreground p-6">
+                    <div
+                      key={`placeholder-${item.url}`}
+                      className="flex flex-col items-center justify-center gap-3 text-center text-sm text-muted-foreground p-6"
+                    >
                       <p>Aceptá las cookies de redes sociales para ver este contenido.</p>
                       <button
                         type="button"

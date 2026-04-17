@@ -30,30 +30,46 @@ export function KlaroConsent() {
             consentModal: {
               title: "Configuración de cookies",
               description:
-                "Usamos cookies opcionales para mejorar tu experiencia. Podés cambiar tu decisión en cualquier momento.",
+                "Usamos cookies opcionales para mejorar tu experiencia. Podés aceptarlas todas o elegir cuáles permitir. Podés cambiar tu decisión en cualquier momento desde el pie de página.",
             },
             consentNotice: {
               description:
-                "Este sitio usa cookies técnicas y opcionales para analítica. <a href='/privacidad'>Más información</a>.",
+                "Usamos cookies técnicas necesarias y opcionales (redes sociales y analítica). <a href='/privacidad'>Política de privacidad</a>.",
               learnMore: "Configurar",
             },
-            ok: "Aceptar",
+            ok: "Aceptar todas",
             acceptAll: "Aceptar todas",
             decline: "Solo necesarias",
             purposes: {
               analytics: "Analítica",
+              marketing: "Redes sociales",
+            },
+            purposeItem: {
+              service: "servicio",
+              services: "servicios",
             },
           },
         },
         services: [
           {
-            name: "analytics",
-            title: "Cookies de analítica",
-            purposes: ["analytics"],
+            name: "instagram",
+            title: "Instagram (contenido incrustado)",
+            purposes: ["marketing"],
             required: false,
             default: false,
-            cookies: [/^_ga/, /^_gid/, /^_gat/],
+            cookies: [/^ig_/, /^mid$/, /^csrftoken$/],
+            description:
+              "Permite mostrar publicaciones y reels de Instagram en esta página.",
           },
+          // Uncomment and configure when Google Analytics is added:
+          // {
+          //   name: "google-analytics",
+          //   title: "Google Analytics",
+          //   purposes: ["analytics"],
+          //   required: false,
+          //   default: false,
+          //   cookies: [/^_ga/, /^_gid/, /^_gat/],
+          // },
         ],
       });
     });

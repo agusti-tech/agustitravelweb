@@ -51,10 +51,6 @@ export const metadata: Metadata = {
       "Planificación de viajes premium con atención personalizada, salidas grupales y experiencias exclusivas.",
     images: ["/images/og-default.jpg"],
   },
-  icons: {
-    icon: "/icon.png",
-    apple: "/apple-icon.png",
-  },
 };
 
 export default function RootLayout({

@@ -2,6 +2,17 @@
 
 import { useEffect } from "react";
 
+type KlaroApiLike = {
+  setup: (config: Record<string, unknown>) => void;
+  getManager?: () => unknown;
+  show?: () => void;
+  [key: string]: unknown;
+};
+
+type KlaroWindow = Window & {
+  klaro?: KlaroApiLike;
+};
+
 export function KlaroConsent() {
   useEffect(() => {
     let mounted = true;
@@ -9,11 +20,15 @@ export function KlaroConsent() {
     void import("klaro").then((klaroModule) => {
       if (!mounted) return;
 
-      const klaro = klaroModule as unknown as {
-        setup: (config: Record<string, unknown>) => void;
-      };
+      const moduleRecord = klaroModule as unknown as Record<string, unknown>;
+      const klaroApi = (moduleRecord.default ?? moduleRecord) as KlaroApiLike;
 
-      klaro.setup({
+      // Klaro v0.7 no asigna window.klaro cuando se importa como módulo ESM,
+      // así que lo exponemos para que getManager/show queden disponibles a
+      // los componentes cliente.
+      (window as KlaroWindow).klaro = klaroApi;
+
+      klaroApi.setup({
         version: 1,
         elementID: "klaro",
         storageMethod: "cookie",

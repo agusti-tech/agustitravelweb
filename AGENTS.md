@@ -24,7 +24,7 @@ Build a premium marketing website for **Agusti Travel Co.** (travel agency based
 - Root layout must use `<html lang="es">`.
 - No CMS integration.
 - No login/auth.
-- No backend API.
+- Sin API en Next.js (export estático); el formulario de contacto usa una **Cloudflare Pages Function** (`functions/api/contact.ts`) con Resend, no rutas API de Next.
 - No database.
 
 ## 3) Required Routes
@@ -38,7 +38,7 @@ Build a premium marketing website for **Agusti Travel Co.** (travel agency based
 - `/blog` Blog listing
 - `/blog/[slug]` Blog detail (must use `generateStaticParams`)
 - `/salidas-grupales` Group departures
-- `/contacto` Contact + consultation form (client-side only)
+- `/contacto` Formulario de consulta: el cliente hace `POST` a `/api/contact` (Cloudflare Pages Function + Resend; variables `RESEND_API_KEY`, `RESEND_FROM`, opcional `CONTACT_TO_EMAIL`)
 
 ## 4) Homepage Sections (order is required)
 
@@ -129,7 +129,7 @@ Each destination object must include:
 
 - i18n/language switcher
 - CMS
-- Backend endpoints
+- API Routes de Next u otro servidor Node en el repo (el contacto usa solo Pages Functions + Resend)
 - Auth
 - Database
 

@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "pages:dev": "next build && npx wrangler pages dev out",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"

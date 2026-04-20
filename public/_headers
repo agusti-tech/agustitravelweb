@@ -1,0 +1,5 @@
+/salidas-grupales
+  Cache-Control: public, max-age=0, must-revalidate
+
+/contacto
+  Cache-Control: public, max-age=0, must-revalidate

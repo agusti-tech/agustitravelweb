@@ -9,15 +9,21 @@ import {
   type Departure,
 } from "@/data/departures";
 
-export function SalidasGrupalesList() {
+type SalidasGrupalesListProps = {
+  departures: Departure[];
+};
+
+export function SalidasGrupalesList({ departures: allDepartures }: SalidasGrupalesListProps) {
   const [visible, setVisible] = useState<Departure[] | null>(null);
 
   useEffect(() => {
     const id = requestAnimationFrame(() => {
-      setVisible(getVisibleDepartures(new Date()));
+      setVisible(
+        getVisibleDepartures(new Date(), MIN_DAYS_BEFORE_DEPARTURE_TO_SHOW, allDepartures),
+      );
     });
     return () => cancelAnimationFrame(id);
-  }, []);
+  }, [allDepartures]);
 
   if (visible === null) {
     return (

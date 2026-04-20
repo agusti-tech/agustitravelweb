@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { SalidasGrupalesList } from "@/components/salidas-grupales/SalidasGrupalesList";
+import { departures } from "@/data/departures";
 
 const siteUrl = "https://www.agustitravelco.com";
 
@@ -40,7 +41,7 @@ export default function SalidasGrupalesPage() {
         </p>
       </header>
 
-      <SalidasGrupalesList />
+      <SalidasGrupalesList departures={departures} />
     </div>
   );
 }

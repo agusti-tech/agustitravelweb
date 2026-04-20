@@ -9,6 +9,7 @@ import { HomeSignatureServices } from "@/components/home/HomeSignatureServices";
 import { HomeTestimonials } from "@/components/home/HomeTestimonials";
 import { HomeTrustBar } from "@/components/home/HomeTrustBar";
 import { HomeWhyTravelWithUs } from "@/components/home/HomeWhyTravelWithUs";
+import { departures } from "@/data/departures";
 
 export const metadata: Metadata = {
   title: "Agusti Travel Co. | Viajes a medida desde Argentina y España",
@@ -78,7 +79,7 @@ export default function Home() {
         <HomeSignatureServices />
         <HomeFeaturedDestinations />
         <HomeWhyTravelWithUs />
-        <HomeFeaturedDepartures />
+        <HomeFeaturedDepartures departures={departures} />
         <HomeTestimonials />
         <HomeInstagramReels />
         <HomeConsultationBand />

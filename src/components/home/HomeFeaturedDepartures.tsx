@@ -7,18 +7,25 @@ import { Button } from "@/components/ui/button";
 import {
   getFeaturedDepartures,
   MIN_DAYS_BEFORE_DEPARTURE_TO_SHOW,
+  type Departure,
   type FeaturedDeparture,
 } from "@/data/departures";
 
-export function HomeFeaturedDepartures() {
+type HomeFeaturedDeparturesProps = {
+  departures: Departure[];
+};
+
+export function HomeFeaturedDepartures({ departures: allDepartures }: HomeFeaturedDeparturesProps) {
   const [featured, setFeatured] = useState<FeaturedDeparture[] | null>(null);
 
   useEffect(() => {
     const id = requestAnimationFrame(() => {
-      setFeatured(getFeaturedDepartures(new Date(), 3));
+      setFeatured(
+        getFeaturedDepartures(new Date(), 3, MIN_DAYS_BEFORE_DEPARTURE_TO_SHOW, allDepartures),
+      );
     });
     return () => cancelAnimationFrame(id);
-  }, []);
+  }, [allDepartures]);
 
   return (
     <section aria-labelledby="salidas-destacadas" className="bg-secondary/35 py-16 sm:py-20">

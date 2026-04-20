@@ -47,7 +47,7 @@ Build a premium marketing website for **Agusti Travel Co.** (travel agency based
 3. Signature services: 3 cards (Itinerarios a medida, Salidas grupales, Experiencias exclusivas locales)
 4. Featured destinations: image-led editorial cards with hover effects
 5. Why travel with us: dedicated advisor, local expertise, concierge support, trust badges
-6. Featured departures: date, duration, destination, price, inquiry CTA
+6. Featured departures: las 3 fechas más cercanas (según `departureDate` en `src/data/departures.ts`; no se muestran salidas con menos de 3 días), inquiry CTA
 7. Testimonials
 8. Instagram / social embeds (optional reels URLs in `src/data/instagram-showcase.ts`)
 9. Consultation CTA band: WhatsApp + consultation form CTA

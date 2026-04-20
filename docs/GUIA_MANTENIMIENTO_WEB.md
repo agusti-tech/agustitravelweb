@@ -26,7 +26,7 @@ No hace falta instalar programas para lo básico: se puede usar **GitHub en el n
 | Tarea                                                    | Dificultad                     | Dónde está                                                                     |
 | -------------------------------------------------------- | ------------------------------ | ------------------------------------------------------------------------------ |
 | Escribir **artículos del blog**                          | Media (se aprende una vez)     | Carpeta `content/blog/` — ver [PUBLICAR_CONTENIDO.md](./PUBLICAR_CONTENIDO.md) |
-| Cambiar **salidas grupales / destacadas en la home**     | Fácil con ayuda la primera vez | `src/data/departures.ts`                                                       |
+| Cambiar **salidas grupales** (lista y orden en la home)  | Fácil con ayuda la primera vez | `src/data/departures.ts` — array `departures`, campo `departureDate` (YYYY-MM-DD); la home muestra las 3 fechas más cercanas y se ocultan salidas con menos de 3 días |
 | Cambiar **testimonios** en la home                       | Fácil con ayuda                | `src/data/testimonials.ts`                                                     |
 | Añadir **reels o posts de Instagram** en la home         | Fácil                          | `src/data/instagram-showcase.ts` (solo enlaces)                                |
 | Cambiar textos del **hero** o secciones de la home       | Media                          | Archivos en `src/components/home/` (mejor con ayuda)                           |
